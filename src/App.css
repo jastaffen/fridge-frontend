@@ -1,38 +1,208 @@
-.App {
+body {
+  margin: 0;
+}
+
+.nav-container {
+  position: fixed;
+  display: block;
+  top: 0;
+  background-color: rgb(22, 255, 193);
+  border-bottom: 2px solid gray;
+  width: 100%;
+  height: 250px;
+  z-index: 2;
+}
+
+
+.nav-container h1 {
+  position: relative;
+  text-align: center;
+  font-family: "Aesthetique";
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+  color: rgb(164, 164, 164);
+  font-weight: 800;
+  font-size: 8vw;
+  line-height: 43px;
+  z-index: 1;
+}
+
+.hn-container {
+  position: absolute;
+  display: block;
+  top: 0;
+  background-color: rgb(22, 255, 193);
+  width: 100%;
+  /* height: 50px; */
+}
+
+
+
+.goldplate {
+  display: block;
+  position: absolute;
+  background-color: rgb(164, 164, 164);
+  width: 100%;
+  height: 2px;
+  margin-top: 25px;
+  box-shadow: 0px 1px 5px black;
+  z-index: -1;
+}
+
+
+.login-form {
+  position: absolute;
+  display: inline-flex;
+  top: 175px;
+  right: 20px;
+  z-index: 3;
+  /* width: 100px; */
+  padding: 5px;
+  margin: 5px;
+}
+
+.login-form input, button {
+  border-radius: 10px;
+  flex-flow: column wrap;
+  margin: 2px;
+  padding: 2px;
+  outline: none;
+  transition: padding 500ms ease;
+}
+
+.login-form input:focus {
+  padding: 8px;
+  border: 1px solid teal;
+}
+
+.login-form button {
+  background-color: rgb(202, 249, 236)
+}
+
+.login-form button:hover {
+  background-color: rgb(22, 255, 193);
+}
+
+
+.main-container {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 252px;
+  width: 100%;
+  background-color: rgb(232, 255, 249);
+  padding-bottom: 150px;
+}
+
+.main-container .about-page, .signup-page {
+  margin: 3% 1%;
+  width: 50%;
+  height: 50%;
+  color: rgb(53, 53, 53);
+}
+
+
+
+
+.about-page h3, .signup-page h3, form {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+.about-page li {
+  list-style-type: none;
+  text-align: right;
+  margin: 8px;
+  margin-right: 55px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.signup-page input {
+  border-radius: 1px;
+  width: 35%;
+  margin: 3px 0;
+  transition: padding 500ms ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.signup-page input:focus {
+  outline: none;
+  border: 1px solid teal;
+  padding: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.signup-page button {
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.signup-page button:hover {
+  background-color: rgb(218, 255, 245);
+}
+
+footer {
+  display: block;
+  position: absolute;
+  background-color: whitesmoke;
+  bottom: -100px;
+  width: 100%;
+  padding: 30px;
+}
+
+.main-body {
+  position: relative;
+  top: 100px;
+}
+
+.recipe-container {
+  height: 900px;
+  width: 500px;
+}
+
+.recipe-card {
+  height: 200;
+  width: 200px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.recipe-card img {
+  height: 100px;
+  width: 190px;
+  margin: 0 auto;
+}
+
+.recipe-card h5 {
+  width: 100px;
+  text-align: center;
+}
+
+/* .modal-on:not(.modal-container) {
+  /* filter: brightness(80%); */
+
+
+.modal-container {
+  margin: 0 auto;
+  background-color: white;
+}
+
+#modal {
+  position: fixed;
+  background-color: white;
+  top: 30px;
+  left: 60px;
+  width: 80%;
+  height: 90%;
+  z-index: 4;
+  overflow: scroll;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+}
+
+/* #modal > * {
+  text-align: center;
+} */
+
+#modal img {
+  width: 200px;
+  height: 200px;
+  margin: 0px auto;
 }
