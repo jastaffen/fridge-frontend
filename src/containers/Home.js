@@ -34,11 +34,13 @@ export default class Home extends React.Component {
     }
 
     closeModalOnWindowClick = e => {
-        if (e.target.id !== 'modal') {
+        if (e.target.className !== 'modal-container' || e.target.id !== 'modal' || e.target.className !== "instructions-list" || e.target.className !== "im-container") {
             this.setState({
                 recipeClicked: null
             })
-        } 
+        } else {
+            console.log('false')
+        }
     }
 
     render() {
@@ -54,7 +56,9 @@ export default class Home extends React.Component {
                     <Router>
                         <NavBar user={user} />
                         <Switch>
+                            {/* <Route path="/" component={Home}/> */}
                             <Route exact path="/ingredients" render={() => <IngredientsPage />} /> 
+                            <Route exact path="/your-recipes" render={() => <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick} />} />
                             <Route exact path="/recipe-search" render={() => <SearchRecipes />} /> />
                         </Switch>
                     </Router>
@@ -64,7 +68,7 @@ export default class Home extends React.Component {
                     
                         {this.state.recipeClicked ? 
                         <div className="modal-container">
-                            <RecipeModal recipeClicked={this.state.recipeClicked} closeModal={this.closeModal} />
+                            <RecipeModal recipeClicked={this.state.recipeClicked} closeModal={this.closeModal} user={user} />
                         </div>
                         : null}
                     <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick} />
