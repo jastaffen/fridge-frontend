@@ -162,8 +162,12 @@ footer {
 
 .recipe-container {
   height: 900px;
-  width: 500px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 135px;
 }
+
 
 .recipe-card {
   height: 200;
@@ -241,4 +245,95 @@ footer {
 
 .red {
   color: red;
+}
+
+#yi-header {
+  position: absolute;
+  top: 150px;
+  text-align: center;
+}
+
+
+
+.ingredients-page {
+  height: 900px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 135px;
+}
+
+
+.yi-page-container {
+  /* border: 1px solid black; */
+  margin-top: 15px;
+  width: 49%;
+  float: left;
+  /* height: 100%; */
+}
+
+.yi-page-container h5 {
+  text-align: center;
+  margin-bottom: -10px;
+}
+
+.yi-page {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  top: 10px;
+  /* width: 49%; */
+  align-content: space-between;
+}
+
+.ingredient-card {
+  height: 150px;
+  width: 100px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+  margin: 2px 4px;
+}
+
+.ni-container {
+  position: relative;
+  top: 15px;
+  clear: both;
+} 
+
+.ai-container {
+  float: right;
+  position: relative;
+  display: inline-flex;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-top: 21px;
+  width: 35%;
+  overflow: scroll;
+  height: 340px;
+  padding: 14px;
+  align-items: space-between;
+}
+
+.ai-container h5 {
+  position: relative;
+  /* width: 100%; */
+  margin: 0 auto;
+  /* text-align: center; */
+  /* display: block; */
+  /* border: 1px solid black; */
+  height: 25px;
+}
+
+.ai-card-container {
+  display: flex;
+  position: relative;
+  top: 50px;
+  width: 150%;
+  flex-wrap: wrap;
+}
+
+.ingredient-index-card {
+  height: 80px;
+  width: 80px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+  margin: 2px 4px;
 }
