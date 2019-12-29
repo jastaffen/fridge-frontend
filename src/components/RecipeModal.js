@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RecipeModal = ({recipeClicked, closeModal, user}) => {
+const RecipeModal = ({recipeClicked, closeModal, userIngredients}) => {
     return(
         <div id="modal">
 
@@ -11,7 +11,7 @@ const RecipeModal = ({recipeClicked, closeModal, user}) => {
             <div className="im-container">
                 <h4>Ingredients</h4>
                 <ul>
-                    {recipeClicked.recipe.ingredients.map(ingredient => <li>{ingredient.name}</li>)}
+                    {recipeClicked.recipe.ingredients.map(ingredient => <li className={!userIngredients.includes(ingredient) ? 'red' : null}>{ingredient.name}</li>)}
                 </ul>
             </div>
             

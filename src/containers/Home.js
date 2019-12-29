@@ -10,7 +10,8 @@ import RecipeModal from '../components/RecipeModal';
 export default class Home extends React.Component {
     
     state = {
-        recipeClicked: null
+        recipeClicked: null,
+        ingredients: []
     }
     
     handleRecipeClick = (e, id) => {
@@ -34,7 +35,7 @@ export default class Home extends React.Component {
     }
 
     closeModalOnWindowClick = e => {
-        if (e.target.className !== 'modal-container' || e.target.id !== 'modal' || e.target.className !== "instructions-list" || e.target.className !== "im-container") {
+        if (e.target.id !== 'modal') {
             this.setState({
                 recipeClicked: null
             })
@@ -43,10 +44,26 @@ export default class Home extends React.Component {
         }
     }
 
+    componentDidMount() {
+        fetch("http://localhost:3000/api/v1/ingredients", {
+            method: "GET",
+            headers: {
+                Authorization: `bearer ${this.props.token}`
+            }
+        })
+        .then(resp => resp.json())
+        .then(ingredients => {
+            this.setState({
+                ingredients: ingredients.ingredients
+            })
+        })
+    }
+
     render() {
         console.log(this.state);
         
-        const {user} = this.props
+        const {user} = this.props;
+        console.log(user.ingredients)
         return(
             <div className={this.state.recipeClicked ? "modal-on" : null} onClick={this.closeModalOnWindowClick}>
                 
@@ -56,9 +73,9 @@ export default class Home extends React.Component {
                     <Router>
                         <NavBar user={user} />
                         <Switch>
-                            {/* <Route path="/" component={Home}/> */}
-                            <Route exact path="/ingredients" render={() => <IngredientsPage />} /> 
-                            <Route exact path="/your-recipes" render={() => <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick} />} />
+                            {/* <Route path="/" render={() => <Home user={this.state.user} token={this.state.token} />}/> */}
+                            <Route exact path="/ingredients" render={() => <IngredientsPage userIngredients={user.ingredients} ingredients={this.state.ingredients} />} /> 
+                            <Route exact path="/your-recipes" render={() => <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick}  />} />
                             <Route exact path="/recipe-search" render={() => <SearchRecipes />} /> />
                         </Switch>
                     </Router>
@@ -68,10 +85,10 @@ export default class Home extends React.Component {
                     
                         {this.state.recipeClicked ? 
                         <div className="modal-container">
-                            <RecipeModal recipeClicked={this.state.recipeClicked} closeModal={this.closeModal} user={user} />
+                            <RecipeModal recipeClicked={this.state.recipeClicked} closeModal={this.closeModal} userIngredients={user.ingredients} />
                         </div>
                         : null}
-                    <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick} />
+                    {/* <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick} /> */}
                 </div>
             </div>
         )
