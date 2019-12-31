@@ -283,10 +283,17 @@ footer {
 }
 
 .ingredient-card {
-  height: 150px;
+  height: 170px;
   width: 100px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
   margin: 2px 4px;
+}
+
+.ingredient-card img {
+  position: relative;
+  width: 55px;
+  height: 50px;
+  left: 25px;
 }
 
 .ni-container {
@@ -311,18 +318,21 @@ footer {
 
 .ai-container h5 {
   position: relative;
-  /* width: 100%; */
   margin: 0 auto;
-  /* text-align: center; */
-  /* display: block; */
-  /* border: 1px solid black; */
   height: 25px;
+}
+
+.ai-container p {
+  font-weight: 800;
+  color: rgb(22, 255, 193);
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+  font-size: 12px;
 }
 
 .ai-card-container {
   display: flex;
   position: relative;
-  top: 50px;
+  top: 90px;
   width: 150%;
   flex-wrap: wrap;
 }
@@ -355,3 +365,68 @@ footer {
   z-index: 4;
 }
 
+
+.sr-container {
+  height: 900px;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: 135px;
+}
+
+
+.sr-yi-ingredients-container {
+  margin-left: 10px;
+  overflow: scroll;
+  border: 1px solid black;
+  padding: 10px;
+  width: 38%;
+}
+
+.sr-yi-ingredients-container div {
+  margin: 2px auto;
+}
+
+.sr-yi-ingredients-container div:hover {
+  animation: fade .5s both;
+  cursor: pointer;
+  /* animation-duration: 15s; */
+}
+
+@keyframes fade {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: rgb(215, 215, 215);
+  }
+}
+
+.si-box {
+  border: 1px solid black;
+  width: 38%;
+  height: 400px;
+  float: right;
+  margin-right: 10px;
+  position: relative;
+  top: 10px;
+}
+
+.sri-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.si-list {
+  margin: 0
+}
+
+.si-tile {
+  position: relative;
+  left: -40px;
+  list-style-type: none;
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
