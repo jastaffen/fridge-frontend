@@ -1,17 +1,32 @@
 import React from 'react';
 
 const RecipeModal = ({recipeClicked, closeModal, userIngredients}) => {
+
+    const renderIngredients = () => {
+        return recipeClicked.recipe.ingredients.map((ingredient, index) => <li key={index} className={renderClass(ingredient)}>{ingredient.name}</li>)
+    }
+
+    const renderClass = ingredient => {
+        let names = userIngredients.map(userIngredient => userIngredient.ingredient.name);
+        if (names.includes(ingredient.name)) {
+            return ''
+        } else {
+            return 'red'
+        }
+    }
+    
+
     return(
         <div id="modal">
 
-            <button onClick={closeModal}>x</button>
+            <button id="recipeClicked" onClick={closeModal}>x</button>
             <h2>{recipeClicked.recipe.title}</h2>
             <img src={recipeClicked.recipe.image} alt={recipeClicked.recipe.title} />
 
             <div className="im-container">
                 <h4>Ingredients</h4>
                 <ul>
-                    {recipeClicked.recipe.ingredients.map(ingredient => <li className={!userIngredients.includes(ingredient) ? 'red' : null}>{ingredient.name}</li>)}
+                    {renderIngredients()}
                 </ul>
             </div>
             

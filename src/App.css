@@ -187,10 +187,6 @@ footer {
   text-align: center;
 }
 
-/* .modal-on:not(.modal-container) {
-  /* filter: brightness(80%); */
-
-
 .modal-container {
   margin: 0 auto;
   background-color: white;
@@ -336,4 +332,26 @@ footer {
   width: 80px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
   margin: 2px 4px;
+  padding: 5px;
 }
+
+.user-ingredient-form {
+  background-color: white;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+  width: 20%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#search-all {
+  position: absolute;
+  right: 65px;
+  width: 20%;
+  padding: 10px;
+  top: -19px;
+  z-index: 4;
+}
+
