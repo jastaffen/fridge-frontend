@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const IngredientForm = () => {
+const IngredientForm = ({newIngredient, handleUserIngredientFormChange, addNewIngredient}) => {
     return (
-        <form>
-            <input type="text" placeholder="ingredient name" />
-            <input type="number" placeholder="amount" />
-            <input type="text" placeholder="unit" />
-            <input type="submit" value="add ingredient" />
+        <form id='newIngredient' onSubmit={addNewIngredient}>
+            <input type="text" name="name" value={newIngredient.name} placeholder="ingredient..." onChange={handleUserIngredientFormChange} />
+            {/* <input type="number" placeholder="amount" />
+            <input type="text" placeholder="unit" /> */}
+            <button type="submit">Add Ingredient</button>
         </form>
     )
 }

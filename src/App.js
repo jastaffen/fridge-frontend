@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-
 import WelcomePage from './containers/WelcomePage';
 import Home from './containers/Home';
 
@@ -70,12 +69,13 @@ class App extends React.Component {
       user: obj.user,
       token: obj.jwt
     }))
-    .catch(console.log( resp => resp.message))
+    .catch(console.log(resp => resp.message))
   }
 
   render() {
-    console.log(this.state.user)
+
     return (
+
       <>
         {
           this.state.user ?
@@ -83,6 +83,7 @@ class App extends React.Component {
         <WelcomePage signUp={this.state.signUp} login={this.state.login} handleChange={this.handleChange} handleLogin={this.handleLogin} handleSignUp={this.handleSignUp} />
         }
       </>
+
       );
   }
   
