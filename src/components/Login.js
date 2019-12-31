@@ -3,7 +3,7 @@ import React from 'react';
 const Login = ( { login, handleChange, handleLogin } ) => {
     
     const handleClick = () => {
-        console.log('yo')
+        // console.log('yo')
     }
 
     return(

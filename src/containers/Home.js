@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RecipeCollection from './RecipeCollection';
 import IngredientsPage from './IngredientsPage';
-import SearchRecipes from '../components/SearchRecipes';
+import SearchRecipes from './SearchRecipes';
 import RecipeModal from '../components/RecipeModal';
 import UserIngredientForm from '../components/UserIngredientForm';
 
@@ -160,9 +160,11 @@ export default class Home extends React.Component {
     }
 
     render() {
-        console.log(this.state.userIngredients)
+        
         const {user} = this.props;
+
         return(
+
             <div>
                 <div className={this.state.recipeClicked || this.state.ingredientIndexCardClicked ? "modal-on" : null} onClick={this.closeModalOnWindowClick}>
                     <div className="hn-container">
@@ -174,7 +176,7 @@ export default class Home extends React.Component {
                                 {/* <Route path="/" render={() => <Home user={this.state.user} token={this.state.token} />}/> */}
                                 <Route exact path="/ingredients" render={() => <IngredientsPage userIngredients={this.state.userIngredients} ingredients={this.state.ingredients} handleIngredientIndexCardClick={this.handleIngredientIndexCardClick} newIngredient={this.state.newIngredient} handleUserIngredientFormChange={this.handleUserIngredientFormChange} addNewIngredient={this.addNewIngredient} />} /> 
                                 <Route exact path="/your-recipes" render={() => <RecipeCollection recipes={user.recipes} handleRecipeClick={this.handleRecipeClick}  />} />
-                                <Route exact path="/recipe-search" render={() => <SearchRecipes />} /> />
+                                <Route exact path="/recipe-search" render={() => <SearchRecipes userIngredients={this.state.userIngredients} />} /> />
                             </Switch>
                         </Router>
                     </div>
@@ -197,6 +199,7 @@ export default class Home extends React.Component {
                     }
 
                 </div>
+
             </div>
         )
     }
