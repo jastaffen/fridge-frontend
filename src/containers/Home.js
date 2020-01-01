@@ -33,6 +33,8 @@ export default class Home extends React.Component {
                 newIngredient: {
                     name: ''
                 }
+            }, () => {
+                alert('whoops it appears that that ingredient must already be there.');
             })
         } else {
             fetch("http://localhost:3000/api/v1/ingredients", {
@@ -50,9 +52,16 @@ export default class Home extends React.Component {
             })
             .then(resp => resp.json())
             .then(ingredient => {
-                this.setState({
-                    ingredients: [...this.state.ingredients, ingredient.ingredient]
-                })
+                if (ingredient.ingredient) {
+                    this.setState({
+                        ingredients: [...this.state.ingredients, ingredient.ingredient],
+                        newIngredient: {
+                            name: ''
+                        }
+                    })
+                } else {
+                    alert(ingredient.error)
+                }
             })
         }
     }
