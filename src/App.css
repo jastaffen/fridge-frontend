@@ -263,6 +263,7 @@ footer {
 .yi-page-container {
   /* border: 1px solid black; */
   margin-top: 15px;
+  margin-left: 10px;
   width: 49%;
   float: left;
   /* height: 100%; */
@@ -285,6 +286,7 @@ footer {
 .ingredient-card {
   height: 170px;
   width: 100px;
+  border: 1px solid black;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
   margin: 2px 4px;
 }
@@ -307,13 +309,14 @@ footer {
   position: relative;
   display: inline-flex;
   border: 1px solid black;
-  margin-right: 5px;
+  margin-right: 35px;
   margin-top: 21px;
-  width: 35%;
+  width: 40%;
   overflow: scroll;
   height: 340px;
   padding: 14px;
   align-items: space-between;
+  background-color: lightblue;
 }
 
 .ai-container h5 {
@@ -343,6 +346,12 @@ footer {
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
   margin: 2px 4px;
   padding: 5px;
+  transition: opacity .5s ease-in-out;
+}
+
+.ingredient-index-card:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .user-ingredient-form {
@@ -390,17 +399,9 @@ footer {
 .sr-yi-ingredients-container div:hover {
   animation: fade .5s both;
   cursor: pointer;
-  /* animation-duration: 15s; */
 }
 
-@keyframes fade {
-  from {
-    background-color: white;
-  }
-  to {
-    background-color: rgb(215, 215, 215);
-  }
-}
+
 
 .si-box {
   border: 1px solid black;
@@ -429,4 +430,18 @@ footer {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding: 5px;
+}
+
+.si-tile:hover {
+  animation: fade .5s both;
+  cursor: pointer;
+}
+
+@keyframes fade {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: rgb(215, 215, 215);
+  }
 }
