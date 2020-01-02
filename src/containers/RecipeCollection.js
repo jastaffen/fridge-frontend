@@ -1,10 +1,10 @@
 import React from 'react';
 import RecipeCard from '../components/RecipeCard';
 
-const RecipeCollection = ({recipes, handleRecipeClick}) => {
+const RecipeCollection = ({userRecipes, handleRecipeClick}) => {
     
     const renderRecipes = () => {
-        return recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} handleRecipeClick={handleRecipeClick} />)
+        return userRecipes.map(recipe => <RecipeCard key={recipe.recipe.id} recipe={recipe.recipe} handleRecipeClick={handleRecipeClick} />)
     }
 
     return(
