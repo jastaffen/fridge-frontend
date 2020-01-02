@@ -3,7 +3,7 @@ import IngredientCard from '../components/IngredientCard';
 import IngredientForm from '../components/IngredientForm';
 import IngredientIndex from '../components/IngredientIndex'
 
-const IngredientsPage = ({userIngredients, ingredients, handleIngredientIndexCardClick, newIngredient, handleUserIngredientFormChange, addNewIngredient}) => {
+const IngredientsPage = ({userIngredients, ingredients, handleIngredientIndexCardClick, newIngredient, handleUserIngredientFormChange, addNewIngredient, handleEditClick}) => {
 
     const [searchTerm, setSearchTerm] = React.useState("")
 
@@ -12,7 +12,7 @@ const IngredientsPage = ({userIngredients, ingredients, handleIngredientIndexCar
     }
 
     const renderIngredientCards = () => {
-        return userIngredients.map((userIngredient, index) => <IngredientCard key={index} userIngredient={userIngredient} />)
+        return userIngredients.map((userIngredient, index) => <IngredientCard key={index} userIngredient={userIngredient} handleEditClick={handleEditClick} />)
     }
 
     const renderAllIngredients = () => {

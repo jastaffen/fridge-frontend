@@ -1,16 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBar = ( {user} ) => {
+const NavBar = ( {user, handleLogout} ) => {
     return(
         <div>
             {user ? 
             <div className="ln-container">
-                <NavLink to="/">Home</NavLink> 
+                {/* <NavLink to="/ingredients">Home</NavLink>  */}
                 <NavLink to="/recipe-search">Search Recipes</NavLink>
                 <NavLink to='/ingredients'>Ingredients</NavLink>
                 <NavLink to="/your-recipes">Your Recipes</NavLink>
-                <button>Log Out</button>
+                <button id="logout" onClick={handleLogout}>Log Out</button>
             </div>
             :
             <>

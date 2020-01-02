@@ -4,6 +4,9 @@ import WelcomePage from './containers/WelcomePage';
 import Home from './containers/Home';
 
 class App extends React.Component {
+
+  
+
   state = {
     signUp: {
       first_name: '',
@@ -18,6 +21,8 @@ class App extends React.Component {
     user: null,
     token: ''
   }
+
+  initialState = {...this.state};
 
   handleChange = e => {
     let category = e.target.parentNode.id;
@@ -41,10 +46,16 @@ class App extends React.Component {
       body: JSON.stringify({"user": this.state.signUp})
     })
     .then(resp => resp.json())
-    .then(obj => this.setState({
-      user: obj.user,
-      token: obj.jwt
-    }))
+    .then(obj => {
+      if (obj.user) {
+        this.setState({
+          user: obj.user,
+          token: obj.jwt
+        })
+      } else {
+        alert(obj.error)
+      }
+    })
 
   }
 
@@ -68,8 +79,16 @@ class App extends React.Component {
     .then(obj => this.setState({
       user: obj.user,
       token: obj.jwt
+    }, () => {
+      localStorage.token = this.state.token;
     }))
     .catch(console.log(resp => resp.message))
+  }
+
+  handleLogout = () => {
+    this.setState(this.initialState)
+    // debugger;
+    window.location.pathname = '/ingredients';
   }
 
   render() {
@@ -79,7 +98,7 @@ class App extends React.Component {
       <>
         {
           this.state.user ?
-        <Home user={this.state.user} token={this.state.token} /> :
+        <Home user={this.state.user} token={this.state.token} handleLogout={this.handleLogout} /> :
         <WelcomePage signUp={this.state.signUp} login={this.state.login} handleChange={this.handleChange} handleLogin={this.handleLogin} handleSignUp={this.handleSignUp} />
         }
       </>
